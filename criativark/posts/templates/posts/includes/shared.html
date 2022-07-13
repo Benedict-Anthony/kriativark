@@ -1,0 +1,17 @@
+{% load static %}
+
+<article class="flex flex-col justify-center items-start h-full w-full text-left drop-shadow-2xl rounded-lg bg-gray-200 pb-2 md:w-80">
+    {% if post.image.url is not None %}
+        <img src=" {{post.image.url}} " class="w-full h-60 rounded-sm" alt="">
+    {% else %}
+        <img src=" {% static 'images/default.jpg' %}" alt="{{post.title}}">
+    {% endif %}
+    <h1 class="text-xl py-2 px-2 text-VeryDarkGrayBlue font-bold">{{post.title}}</h1>
+    <p class="text-md font-semi-bold px-2"> {{post.excert |title}}</p>
+    <p class="px-2 text-sm text-LightRed">{{post.date}}</p>
+
+
+    <a href=" {% url 'detail' post.slug %}" class="w-1/2 py-3 mx-2 px-4 mt-3 text-center text-1xl bg-gradient-to-r from-VeryDarkGrayBlue to-LightRed text-white rounded-lg hover:from-VeryDarkDesaturatedBlue hover:to-VeryLightRed ">Read More...</a>
+
+
+</article>

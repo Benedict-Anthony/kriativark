@@ -1,0 +1,65 @@
+<section class="w-100 bg-VeryDarkDesaturatedBlue">
+    <header class="container mx-auto py-4 flex relative z-20 justify-between items-center px-3">
+      <div class="logo">
+        <h2 class="text-2xl md:text-3xl font-bold text-white">
+          <a href="{% url 'home' %}" class="text-VeryLightRed">Kriativ Ark</a>
+        </h2>
+      </div>
+
+      <nav class=" hidden md:flex items-center justify-between w-3/4">
+        <div class="space-x-6 ">
+
+          <a href=" {% url 'home' %} " class="text-white hover:text-VeryLightRed">Home</a>
+          <a href=" {% url 'posts' %} " class="text-white hover:text-VeryLightRed">Posts</a>
+          <a href=" {% url 'about' %} " class="text-white hover:text-VeryLightRed">About</a>
+        </div>
+      
+        <div class="space-x-8">
+          {% if user.is_authenticated %}
+          
+          <a href=" {% url 'dashbord' user %} " class="text-white hover:text-VeryLightRed">{{user.profile}}</a>
+          <a href= " {% url 'add-post' %} " class="text-white text-3xl hover:text-VeryLightRed">+</a>
+          <a href=" {% url 'logout' %} " class="w-full py-3 px-4 bg-gradient-to-r from-green-600 to-red-600 hover:from-red-600 hover:to-green-400 text-white rounded-lg hover:bg-green-800 mt-3 text-center text-1xl md:1/2">Logout</a>
+          
+          {% else %}
+          <a href=" {% url 'login' %} " class="w-full py-3 px-4 bg-gradient-to-r from-green-600 to-red-600 hover:from-red-600 hover:to-green-400 text-white rounded-lg hover:bg-green-800 mt-3 text-center text-1xl md:1/2">Sign In</a>
+          <a href=" {% url 'create-account' %} " class="w-full py-3 px-4 bg-gradient-to-r from-green-600 to-red-600 hover:from-red-600 hover:to-green-400 text-white rounded-lg hover:bg-green-800 mt-3 text-center text-1xl md:1/2">Sign Up</a>
+        </div>
+
+        {% endif %}
+
+      </nav>
+
+  
+
+    {% comment %} Mobile Menu {% endcomment %}
+ <nav class= "z-30 md:hidden">
+  <div class="flex flex-col justify-center items-center absolute hidden top-9 mt-9 h-auto  Mobile-Menu right-6 left-6 w-auto bg-VeryDarkDesaturatedBlue text-VeryDarkBlue py-4 rounded-md drop-shadow-lg space-y-3 z-20">
+
+    <div class="mt-2 space-y-3 flex flex-col justify-center items-center w-full">
+      <a href=" {% url 'home' %} " class="text-white text-xl hover:text-VeryLightRed">Home</a>
+      <a href=" {% url 'posts' %} " class="text-white text-xl hover:text-VeryLightRed">Posts</a>
+      <a href="{% url 'about' %}" class="text-white text-xl hover:text-VeryLightRed">About</a>
+    </div>
+
+    
+    <div class="flex flex-col justify-center items-center space-y-3 ">
+      {% if user.is_authenticated %}
+      
+      <a href=" {% url 'dashbord' user %} " class="text-white hover:text-VeryLightRed">{{user.profile}}</a>
+      <a href= " {% url 'add-post' %} " class="text-white text-3xl hover:text-VeryLightRed">+</a>
+      <a href=" {% url 'logout' %} " class="w-full py-3 px-4 bg-gradient-to-r from-green-600 to-red-600 hover:from-red-600 hover:to-green-400 text-white rounded-lg hover:bg-green-800 mt-3 text-center text-1xl md:1/2">Logout</a>
+      
+      {% else %}
+      <a href=" {% url 'login' %} " class="w-full z-20 py-3 px-4 bg-gradient-to-r from-green-600 to-red-600 hover:from-red-600 hover:to-green-400 text-white rounded-lg hover:bg-green-800 mt-3 text-center text-1xl md:1/2">Sign In</a>
+      <a href=" {% url 'create-account' %} " class="w-full py-3 px-4 bg-gradient-to-r from-green-600 to-red-600 hover:from-red-600 hover:to-green-400 text-white rounded-lg hover:bg-green-800 mt-3 text-center text-1xl md:1/2">Sign Up</a>
+    </div>
+
+    {% endif %}
+
+  </div>
+ </nav>
+</header>
+
+ <div class="hambuger"></div>
+  </section>

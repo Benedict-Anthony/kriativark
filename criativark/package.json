@@ -1,0 +1,17 @@
+{
+  "name": "criativark",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tailwindcss -i src/styles.css -o static/styles/styles.css",
+    "watch": "tailwindcss -i src/styles.css -o static/styles/styles.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.1.4"
+  }
+}

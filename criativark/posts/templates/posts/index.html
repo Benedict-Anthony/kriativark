@@ -1,0 +1,30 @@
+{% extends 'base.html' %} 
+{% load static %}
+{% block title %}Welcome{% endblock title %}
+
+{% block content %}
+    {% include 'navbar.html' %}
+
+<section class="landing py-4 px-2 w-full">
+    <div class="container mx-auto flex flex-col justify-center mt-3 text-center h-full md:text-left md:items-start">
+        <h1 class="text-white text-2xl font-semibold md:text-4xl">Y'ello</h1>   
+        <p class="text-white text-2xl w-full mt-3 md:w-1/2">
+            Welcome to Kriativ Ark! <br> We are glad to have you in our Ark of Blogs, stories, fictons, tales and lots more...
+        </p>
+        <a href=" {% url 'create-account' %} " class="py-3 px-4 bg-LightRed text-white rounded-full hover:bg-VeryLightRed mt-3 text-center text-1xl">Get started</a>
+    </div>
+</section>
+
+<main class="container mx-auto w-full my-5 py-5 px-3">
+    <div class="flex flex-col items-center flex-wrap justify-between space-y-3 md:flex-row">
+
+        {% for post in posts %}
+        
+        {% include "./includes/shared.html" %}
+        {% endfor %}
+
+    </div>
+</main>
+
+{% endblock content %}
+

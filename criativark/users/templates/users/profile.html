@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+ {% block title %} {{user_profile}}{% endblock title %}
+ {% block content %}
+    {% include "navbar.html" %}
+ <section class="container mx-auto mt-4 flex flex-col justify-center items-center w-full md:flex-row md:space-x-8">
+    <div class="">
+      {% if user_profile.image.url is not None %}
+      <img src="{{user_profile.image.url}}" alt="" class="rounded-md w-3/4 mx-auto h-1/2 md:w-96 md:mx-0">
+      {% else %}
+      <img src="{% static 'images/defaultuser.png' %} " class="rounded-md w-3/4 mx-auto h-1/2 md:w-96 md:mx-0" alt="">
+      {% endif %}
+    </div>
+
+    <div class="w-full text-left flex flex-col justify-start items-center md:w-1/2">
+        <h1 class="text-3xl font-bold mb-4 text-VeryDarkBlue">{{user_profile}}</h1>
+        <h3 class="text-xl text-VeryDarkGrayBlue"><a href="mailto:{{user_profile.user.email}}">Email: {{user_profile.user.email}}</a></h3>
+        <h3 class="text-xl text-VeryDarkBlue"><a href="tel:{{user_profile.contact}}">Contact: {{user_profile.contact}}</a></h3>
+        <p class="text-xl font-semibold text-center md:tex-left"> About: <br> {{user_profile.bio |capfirst}}</p>
+    </div>
+ </section>
+
+ <section class="container mx-auto w-full mt-6">
+    <aside class="pl-0 mt-4 mb-2 h-full w-full md:pl-5">
+        <h2 class="text-2xl  text-VeryDarkGrayBlue font-bold ">{{user_profile.first_name}}'s posts</h2>
+      <ul class="flex justify-between items-center flex-col w-full space-y-3  md:space-x-0 md:flex-wrap md:flex-row">
+
+        {% for user_profile_post in user_profile_posts  %}
+            
+        <li class="flex items-center bg-white w-full pr-3 border-VeryLightRed border-x-2 md:w-80">
+            {% if user_profile_post.image.url%}
+            <img class="w-28 h-20" src="{{user_profile_post.image.url}}" alt="">
+            {% else %}
+            <p>{{user_profile_post.title |title}}</p>
+            {% endif %}
+            <a href=" {% url 'detail' user_profile_post.slug %} " class="px-2 text-VeryDarkDesaturatedBlue">{{user_profile_post.title |title}}</a>
+        </li>
+        {% endfor %}
+
+      </ul>
+    </aside>
+ </section>
+ 
+ 
+ 
+ {% endblock content %}

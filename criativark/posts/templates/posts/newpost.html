@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}New post{% endblock title %}
+
+{% block content %}
+{% include 'navbar.html' %}
+<section class="container mx-auto">
+    <div class="flex flex-col justify-between items-center my-4">
+        <form action="" method="POST" enctype="multipart/form-data" class="bg-gray-400 py-3 px-5 rounded-lg drop-shadow-md w-full md:w-96">
+            {% csrf_token %}
+            <div class="flex flex-col input">
+                <label for="title" class="text-gray-900 text-xl pb-2">Title</label>
+                {{form.title}}
+            </div> 
+
+            <div class="flex flex-col input mt-2">
+                <label for="title" class="text-xl text-gray-900 pb-2">Exert</label>
+              {{form.excert}}
+            </div>
+
+            <div class="flex flex-col input mt-2">
+                <label for="title" class="text-xl text-gray-900 pb-2">Post</label>
+                {{form.text}}
+            </div>
+
+          
+            <div class="flex flex-col input mt-2">
+                <label for="title" class="text-xl text-gray-900 pb-2">Related Tags</label>
+                {{form.tag}}
+            </div>
+            <div class="flex flex-col mt-4">
+                <label for="image" class="text-xl text-gray-900 pb-2">Image</label>
+          {{form.image}}
+            </div>
+          
+            <input type="submit" value="Post" class="w-1/2 py-3 px-4 bg-gradient-to-r from-green-600 to-red-600 hover:from-red-600 hover:to-green-400 text-white rounded-lg hover:bg-green-800 text-white rounded-lg  mt-3 text-center text-1xl">
+        </form>
+    </div>
+
+</section>
+
+{% endblock content %}

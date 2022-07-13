@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}Sign in{% endblock title %}
+{% block content %}
+<section class="container mx-auto mt-9">
+    <div class="flex flex-col justify-between items-center my-4">
+        <form action="{% url "create-account" %}" method="POST" class=" bg-gradient-to-r from-LightRed to-VeryDarkGrayBlue py-3 px-5 rounded-lg drop-shadow-md w-full md:w-96">
+            
+            {% csrf_token %}
+            {{form.errors}}
+            <div class="flex flex-col input">
+                <label for="id_ursername" class="text-gray-900 pb-2 text-sm md:text-xl">Username</label>
+               {{form.username}}
+              
+            </div>
+
+            <div class="flex flex-col input">
+                <label for="id_email" class="text-sm text-gray-900 pb-2 md:text-xl">Email</label>
+               {{form.email}}
+
+            </div>
+
+            <div class="flex flex-col input">
+                <label for="id_password" class="text-sm text-gray-900 pb-2 md:text-xl">Password</label>
+                {{form.password1}}
+
+            </div>
+
+            <div class="flex flex-col input">
+                <label for="id_password2" class="text-sm text-gray-900 pb-2 md:text-xl">Confirm Password</label>
+                {{form.password2}}
+
+            </div>
+           
+            <input type="submit" value="Create an account" class="w-full py-3 px-4  bg-gradient-to-r from-green-600 to-red-600 hover:from-red-600 hover:to-green-40 text-white rounded-lg hover:bg-green-800 mt-3 text-center text-1xl md:1/2">
+
+            
+            <div class="flex flex-col justify-start items-center mt-5">
+                <a class="text-md text-white" href=" {% url 'login' %} ">Already have an account?</a>
+            </div>
+        </form>
+    </div>
+
+</section>
+
+{% endblock content %}

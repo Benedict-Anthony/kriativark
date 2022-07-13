@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html{
+    transition: all .3s linear;
+}
+
+.landing{
+    background: url("../images/background2.png") no-repeat;
+    background-position: center 3px;
+    background-size: cover;
+    object-fit: contain;
+    height: 400px;
+}
+
+.input input, .input textarea, .input select{
+    padding: .7rem;
+    border-radius: 8px;
+    resize: none;
+
+}
+.input input:focus, .input textarea:focus, .input select:focus{
+    outline: none;
+}
+
+.input select::-webkit-scrollbar, .input textarea::-webkit-scrollbar{
+    display: none;
+    background-color: transparent;
+}
+
+.comment{
+    height: 10rem;
+}
+
+.errorlist{
+    color: #f1dcdc;
+    margin-bottom: 10px;
+}
+
+@media(max-width:700px){
+    .landing{
+        height: auto;
+    }
+
+
+    
+    .hambuger{
+        position:absolute;
+        top:20px;
+        right:14px;
+        width:2rem;
+        height:1.3rem;
+        background:url("../images/menu.png") no-repeat center/cover;
+        cursor:pointer;
+        transition:all .5s ease ;
+        z-index: 100;
+    }
+
+    .hambuger.active{
+        background:url("../images/close.png") no-repeat center/cover;
+        transition:all .5s ease 
+    }
+
+    /* .Mobile-Menu{
+        transition:all .5s ease 
+
+    } */
+
+}
